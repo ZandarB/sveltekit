@@ -3,7 +3,7 @@
     import Header from '../lib/Header.svelte';
 </script>
 
-<h1>Welcome to your Skeleton Project</h1>
+<Header/>
 <p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
