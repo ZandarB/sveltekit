@@ -1,24 +1,31 @@
 <script>
-
+    export let headingTitle;
 
 </script>
 
 <header>
-    <h1>My Class Work Website</h1>
+    <h1>{headingTitle}</h1>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li> 
-            <li><a href="/">About</a></li>
-            <li><a href="/">Contact</a></li>
+            <li><a href="/home">Home</a></li> 
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact_us">Contact</a></li>
         </ul>
     </nav>
 </header>
 
 <style>
 
-h1 + nav {
-
+ {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
     font-weight: bolder;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-size: 25px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: black;
+    padding: 2px;
+    border: 20px solid blue; 
 }
 </style>

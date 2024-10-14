@@ -9,8 +9,8 @@ let currentTime = new Date();
 
 <style>
      p { 
-        background-color: blue;
-        padding: 2em;
-        border: 20px dotted green; 
+        padding: 5px;
+        border:2px solid black ;
+        font-size: 20px;
      }
 </style>
