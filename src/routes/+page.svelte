@@ -1,0 +1,8 @@
+<script>
+    import Footer from '$lib/Footer.svelte';
+    import Header from '$lib/Header.svelte';
+</script>
+
+<Header headingTitle = "My Thingy"/>
+
+<Footer year={1987}/>
