@@ -1,8 +1,11 @@
 <script>
 import Footer from '$lib/Footer.svelte';
 import Header from '$lib/Header.svelte';
+
+
 let userInput = '';
 let operatorData = '';
+let operatorClass = [,,,];
 
 async function getOperators(name)
 {
@@ -12,6 +15,8 @@ async function getOperators(name)
     {
         const data = await response.json();
         console.log(data.name);
+        operatorClass = data.class;
+        operatorData = data;
     }
     else
     {
@@ -23,10 +28,12 @@ function search()
 {
     if (userInput){
         getOperators(userInput)
+        
     }
     else
     {
         operatorData = 'Please Enter A Valid Name';
+
     }
 }
 
@@ -34,52 +41,63 @@ function search()
 getOperators();
 </script>
 
-<div class="background"></div>
 
 <div class="content">
     <Header headingTitle = "Search AK Operators"/>
-    <div class = "search">
+    <div class = "searchbar">
         <h2 for="textbox">Search for Operators</h2>
         <br>
         <input
             id="textbox"
             type="text"
             bind:value={userInput}
-            placeholder="Enter an Operator's Name"
+            placeholder="Please enter an Operator's Name"
         />
         <br>
-        <button class="search" on:click={search}>Click to Search</button>
-        <p class="operators">{operatorData}</p>
+        <button class="searchbutton" on:click={search}>Click to Search</button>
+        {#if operatorData  && operatorClass}
+            <div class="operatorSpecifics">
+                <p>Name: {operatorData.name}<br>Rarity: {operatorData.rarity} <br> Class: {operatorClass.join(', ')}</p>
+            </div>
+        {/if}
     </div>
-    <Footer/>
 </div>
 
 
 <style>
 
-.search{
-    margin: px;
+
+.searchbar{
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
 }
-.background {
-    background-image: url('/bg.png');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        width: 100vw; 
-        position: absolute; 
-        top: 0;
-        left: 0;
-        z-index: -1;
-    }
+    
+.searchbutton{
+    width: 250px;
+    height: 40px;
+    margin:10px;
+}
+
+
+input{
+    width:500px;
+    height: 40px; 
+}
+
 
 .content {
     position: relative;
     z-index: 1;
-    color: white;
+    color: lightgray;
 }
 
-.search {
-    margin: 10px;
-    text-align: center;
+h2{
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    src: url(https://fonts.gstatic.com/s/notosans/v36/o-0ZIpQlx3QUlC5A4PNr4C5OaxRsfNNlKbCePevttHOmDyw.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;    
+    color: lightgray;
 }
+
 </style>
