@@ -1,4 +1,6 @@
 <script>
+import Footer from '$lib/Footer.svelte';
+import Header from '$lib/Header.svelte';
 let userInput = '';
 let operatorData = '';
 
@@ -32,27 +34,52 @@ function search()
 getOperators();
 </script>
 
+<div class="background"></div>
 
-<label for="textbox">Search for Operators</label>
-<br>
-<input
-    id="textbox"
-    type="text"
-    bind:value={userInput}
-    placeholder="Enter an Operators Name"
-/>
-<br>
-<button class="search" on:click={search}>Click to Search</button>
-<p class ="operators">{operatorData}</p>
+<div class="content">
+    <Header headingTitle = "Search AK Operators"/>
+    <div class = "search">
+        <h2 for="textbox">Search for Operators</h2>
+        <br>
+        <input
+            id="textbox"
+            type="text"
+            bind:value={userInput}
+            placeholder="Enter an Operator's Name"
+        />
+        <br>
+        <button class="search" on:click={search}>Click to Search</button>
+        <p class="operators">{operatorData}</p>
+    </div>
+    <Footer/>
+</div>
 
 
 <style>
 
 .search{
-    margin: 10px;
+    margin: px;
+}
+.background {
+    background-image: url('/bg.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        width: 100vw; 
+        position: absolute; 
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
 }
 
-.textbox{
+.search {
     margin: 10px;
+    text-align: center;
 }
 </style>
