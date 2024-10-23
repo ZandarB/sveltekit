@@ -14,7 +14,7 @@ async function getOperators(name)
     if (response.ok)
     {
         const data = await response.json();
-        console.log(data.name);
+        console.log(data);
         operatorClass = data.class;
         operatorData = data;
     }
