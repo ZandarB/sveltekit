@@ -21,6 +21,13 @@
     type="text"
     placeholder="Please enter your Email"
 />
+<p>Phone Number</p>
+<input
+    id="Phone Number"
+    type="number"
+    
+    placeholder="Please enter your Phone Number"
+/>
 
 <Footer year={1987}/>
 
@@ -43,4 +50,12 @@
     width:200px;
     height: 25px;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button 
+{
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
 </style>
