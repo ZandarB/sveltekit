@@ -4,5 +4,3 @@
 </script>
 
 <Header headingTitle = "My Thingy"/>
-
-<Footer year={1987}/>

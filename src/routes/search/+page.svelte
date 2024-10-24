@@ -66,6 +66,15 @@ getOperators();
 
 <style>
 
+div > p{
+
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    src: url(https://fonts.gstatic.com/s/notosans/v36/o-0ZIpQlx3QUlC5A4PNr4C5OaxRsfNNlKbCePevttHOmDyw.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;    
+    color: lightgray;
+
+}
 
 .searchbar{
     margin: 10px;
@@ -77,12 +86,14 @@ getOperators();
     width: 250px;
     height: 40px;
     margin:10px;
+    outline: black solid 1px;
 }
 
 
 input{
     width:500px;
     height: 40px; 
+    outline: black solid 1px;
 }
 
 
