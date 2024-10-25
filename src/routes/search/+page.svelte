@@ -20,13 +20,17 @@ async function getOperators(name)
         operatorClass = data.class;
         operatorData = data;
         operatorE0Art = data.art[0].link; 
-        operatorE2Art = data.art[2].link; 
-        errorMessage = '';
+        if (data.art[2] && data.art[2].link) {
+            operatorE2Art = data.art[2].link; 
+        } else {
+            operatorE2Art = ''; // Clear E2 art if it doesn't exist
+        }
+        error = '';
         console.log("Successful fetch")
     }
     else
     {
-        console.log("Error Fetching Operators")
+        console.log("Error fetching operators. Invalid name entered.")
         error = 'There was an Error, Please enter a valid Name.';
     }
 }
@@ -50,7 +54,6 @@ function search()
 
 
 <div class="content">
-    <Header headingTitle = "Search AK Operators"/>
     <div class = "searchbar">
         <h2 for="textbox">Search for Operators</h2>
         <br>
@@ -61,23 +64,26 @@ function search()
             placeholder="Please enter an Operator's Name"
         />
         <br>
-        <button class="searchbutton" on:click={search}>Click to Search</button>
+        <button class="searchbutton" on:click={search}>Click to fetch data (If available)</button>
         {#if operatorData}
             <div class="operatorSpecifics">
                 <p>
                     Name: {operatorData.name}<br>
-                    Rarity: {operatorData.rarity} <br>
+                    Rarity: {operatorData.rarity}* <br>
                     Class: {operatorClass.join(', ')} <br>
-                    E0 Art: 
-                    <br>
+                    
                     {#if operatorE0Art[0]} 
+                        E0 Art: 
+                        <br>
                         <img src={operatorE0Art} alt={operatorData.name + " E0 IMG"} width="500" height="500px"/> 
                     {/if} 
+
                     <br>
-                    E2 Art: 
-                    <br>
+
                     {#if operatorE2Art[2]} 
-                        <img src={operatorE2Art} alt={operatorData.name + " E2 IMG"} width="500px" height="500px"/> 
+                        E2 Art:                    
+                        <br>
+                        <img src={operatorE2Art} alt={operatorData.name + " E2 IMG"} width="500px" height="500px"/>                     
                     {/if}
                 </p>            
             </div>
