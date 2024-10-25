@@ -8,6 +8,10 @@
 <h1>My Shitshow</h1>
 <Navigation/>
 <slot/>
+<br>
+<br>
+<br>
+<br>
 <Footer/>
 
 
