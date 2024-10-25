@@ -20,15 +20,15 @@
 
 .background {
     background-image: url('/bg.png');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        width: 100vw; 
-        position: absolute; 
-        top: 0;
-        left: 0;
-        z-index: -1;
-    }
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
 
 </style>

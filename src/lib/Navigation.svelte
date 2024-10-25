@@ -4,18 +4,18 @@
         <a href="/about">About</a>
         <a href="/contact_us">Contact</a>
         <a href="/search">Search</a>
+        <a href="/games">Games</a>
     </div>
 </nav>
 
 <style>
     .links {
         display: flex;
-        padding: 10px;
+        padding: 20px;
         color:lightgray;
         background-color: lightgray;
-        outline: black solid 1px;
-        
-        
+        border: 2px solid black;
+        border-radius: 7px;
     }
 
     .links a {
