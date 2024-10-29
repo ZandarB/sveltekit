@@ -12,7 +12,12 @@ let error = '';
 
 async function getOperators(name)
 {
+    const allOps = await fetch(`https://api.rhodesapi.com/api/operator/`);
+    const allOpsData = await allOps.json();
+    console.log(allOpsData)
+
     const response = await fetch(`https://api.rhodesapi.com/api/operator/${name}/`);
+
    
     if (response.ok)
     {
