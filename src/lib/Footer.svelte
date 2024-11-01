@@ -16,12 +16,13 @@ let currentYear = new Date().getFullYear();
         position: fixed;
         bottom: 0; 
         left: 0; 
-        width: 100%; 
+        width: 98.8%; 
         z-index: 1000;
         border: 2px solid black;
         border-radius: 7px;
-        text-align: center; /* Center the footer text */
-         padding: 10px; /* Add some padding */
-         border-radius: 0 0 7px 7px; /* Match the border radius with the content */
+        text-align: center;
+        padding: 10px; 
+        border-radius: 0 0 7px 7px; 
+        margin-bottom: 1px;
      }
 </style>

@@ -8,10 +8,10 @@
     let operatorE0Art = '';
     let operatorE2Art = '';
     let error = '';
-    let isLoading = false;
+    let pageLoading = false;
 
     async function getOperators(name) {
-        isLoading = true;
+        pageLoading = true;
         const response = await fetch(`https://api.rhodesapi.com/api/operator/${name}/`);
 
         if (response.ok) {
@@ -26,7 +26,7 @@
             console.log("Error fetching operators. Invalid name entered.");
             error = 'There was an Error, Please enter a valid Name.';
         }
-        isLoading = false;
+        pageLoading = false;
     }
 
     function search() {
@@ -54,24 +54,23 @@
         <br>
         <button class="searchbutton" on:click={search}>Click to fetch data (If available)</button>
         
-        {#if isLoading}
+        {#if pageLoading}
             <p>Loading...</p>
         {:else if operatorData}
             <div class="operatorSpecifics">
                 <p>
                     Name: {operatorData.name}<br>
                     Rarity: {operatorData.rarity}* <br>
-                    Class: {operatorClass.join(', ')} <br>
-                    
+                    Class: {operatorClass.join(', ')} <br>                   
                     {#if operatorE0Art} 
+                        <br>
                         E0 Art: 
                         <br>
                         <img src={operatorE0Art} alt={operatorData.name + " E0 IMG"} width="500" height="500"/> 
                     {/if} 
-
                     <br>
-
                     {#if operatorE2Art} 
+                        <br>
                         E2 Art:                    
                         <br>
                         <img src={operatorE2Art} alt={operatorData.name + " E2 IMG"} width="500" height="500"/>                     
@@ -83,7 +82,8 @@
                 <p class="error">{error}</p>
             </div>
         {/if}
-        <p>Here on this page you can search for any operator (Up to a certain point, currently the latest 6* is Ulpianus). And the website will display data related to the operator, assuming they exist.</p>
+        <p>Here on this page you can search for any operator (Up to a certain point, currently the latest 6* is Ulpianus). 
+            And the website will display data related to the operator, assuming they exist. However you will need to input special characters. Such as the 'š' in Wiš'adel, without them the API will error.</p>
     </div>
 </div>
 
@@ -117,7 +117,7 @@ input {
     position: relative;
     z-index: 1;
     background-color: lightgray; 
-    width: 750px;
+    width: 1000px;
     padding: 20px; 
     margin: 20px auto 0;    
     display: flex;

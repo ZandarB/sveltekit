@@ -8,14 +8,7 @@
 <h1>My Shitshow</h1>
 <Navigation/>
 <slot/>
-<br>
-<br>
-<br>
-<br>
 <Footer/>
-
-
-
 <style>
 *{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

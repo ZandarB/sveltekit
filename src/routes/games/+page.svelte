@@ -3,10 +3,10 @@
     import Header from '$lib/Header.svelte';
 
     let operators = []; 
-    let selectedOperator = null;
-    let operatorE0Art = '';
-    let feedback = '';
-    let isLoading = true;
+    let selectedOperator = '';
+    let operatorArt = '';
+    let result = '';
+    let pageLoading = true;
     let correctAnswers = 0;
     let selectedClass = '';
     let classes = [
@@ -19,48 +19,52 @@
         "Specialist",
         "Supporter"
     ]; 
+    let gamePlaying = false;
 
     async function fetchOperators() {
-        isLoading = true;
+        pageLoading = true;
         const response = await fetch(`https://api.rhodesapi.com/api/operator/`);
         if (response.ok) {
             operators = await response.json();
             selectRandomOperator();
         } else {
-            feedback = 'There was an error fetching operators.';
+            result = 'There was an error fetching operators.';
         }
-        isLoading = false;
+        pageLoading = false;
     }
     
     function selectRandomOperator() {
         if (operators.length > 0) {
-            const randomIndex = Math.floor(Math.random() * operators.length);
-            selectedOperator = operators[randomIndex];
-            operatorE0Art = selectedOperator.art[0].link; 
-            feedback = ''; 
+            const randomNumber = Math.floor(Math.random() * operators.length);
+            selectedOperator = operators[randomNumber];
+            operatorArt = selectedOperator.art[0].link; 
+            result = ''; 
             selectedClass = '';
         } else {
-            feedback = 'No operators available.';
+            result = 'No operators available.';
         }
     }
     
     function checkAnswer(className) {
-        const correctClass = selectedOperator.class[0];
-        if (className === correctClass) {
-            correctAnswers++;
-            feedback = 'Correct! Total Correct Answers: ' + correctAnswers;
-            setTimeout(selectRandomOperator, 2000);
-        } else {
-            feedback = 'Incorrect. The correct class is: ' + correctClass + '. The game has been reset.';
-            correctAnswers = 0;
-            selectedOperator = null;
-            operatorE0Art = '';
-            selectedClass = '';
-            setTimeout(selectRandomOperator, 2000);
-        }
+    const correctClass = selectedOperator.class[0];
+    if (className === correctClass) {
+        correctAnswers++;
+        result = 'Correct! Total Correct Answers: ' + correctAnswers;
+        setTimeout(selectRandomOperator, 2000);
+    } else {
+        result = 'Incorrect. The correct class is: ' + correctClass + '. Your score will now be reset to 0.';
+        correctAnswers = 0;
+        selectedClass = '';
+        setTimeout(selectRandomOperator, 2000);
+    }
     }
 
-    fetchOperators();
+function startPlaying()
+{
+    gamePlaying = true;
+}
+
+fetchOperators()
 </script>
 
 <div class="content">
@@ -68,17 +72,20 @@
         <h2>Operator Quiz</h2>
         <br>
         
-        {#if isLoading}
+        {#if pageLoading}
             <p>Loading...</p>
+        {:else if !gamePlaying}
+            <input type="button"
+                value="Start Game"
+                class="startButton"
+                on:click={startPlaying} />        
         {:else}
             <div class="operatorSpecifics">
                 {#if selectedOperator}
                     <p>
                         Name: {selectedOperator.name}<br>
                         Rarity: {selectedOperator.rarity}* <br>
-                        E0 Art: 
-                        <br>
-                        <img src={operatorE0Art} alt={selectedOperator.name + " E0 IMG"} width="500" height="500"/> 
+                        <img src={operatorArt} alt={selectedOperator.name + " E0 IMG"} width="500" height="500"/> 
                     </p>
                 {/if}
             </div>
@@ -97,14 +104,15 @@
                     </label>
             {/each}
             </div>
-             {#if feedback.startsWith('Correct')}
-                    <p class="success">{feedback}</p>
+             {#if result.startsWith('Correct')}
+                    <p class="success">{result}</p>
                 {:else}
-                <p class="error">{feedback}</p>
+                    <p class="error">{result}</p>
                 {/if}            
             {/if}
         {/if}
-        <h3>Welcome to my game of knowledge and memory!. </h3>
+        <br>
+        <h3>Welcome to my game of knowledge and memory!</h3>
         <p>This quiz will test you on your knowledge of AK operators and their class, if you get the answer correct, Great! your score will add up infinitely. Get one wrong and you will be reset back to 0! Good luck!</p>
         <p>Please be aware that a select few operators do not have a full HD transparent art, and as such may look a bit skewed. Also when a new question is loading please allow a few seconds to answer, as the image may be loading.</p>
     </div>
@@ -127,7 +135,7 @@ div > p, h3 {
     position: relative;
     z-index: 1;
     background-color: lightgray; 
-    width: 750px;
+    width: 1000px;
     padding: 20px; 
     margin: 20px auto 0;    
     display: flex;
@@ -155,17 +163,30 @@ label {
     display: flex; 
     align-items: center; 
     flex-wrap: wrap; 
-    margin: 5px 0; 
     cursor: pointer; 
     font-family: 'Noto Sans', sans-serif; 
     font-size: 16px; 
     color: rgb(75, 75, 75); 
-    max-width: 200px; /* Set a maximum width for the label */
+    max-width: 200px;
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 input[type="radio"] {
-    margin-right: 10px; 
+    margin-right: 2px; 
     accent-color: #007bff; 
 }
 
+.radioButtonContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.startButton {
+    max-width: 200px;
+    padding: 15px; 
+    font-size: 16px; 
+    border-radius: 7px;
+    border:solid black 2px;
+}
 </style>
