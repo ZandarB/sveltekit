@@ -7,7 +7,9 @@
 <div class="background"></div>
 <h1>My Shitshow</h1>
 <Navigation/>
-<slot/>
+<div class=content>
+  <slot/>
+</div>
 <Footer/>
 <style>
 *{
@@ -27,5 +29,23 @@
     z-index: -1;
 }
 
+h1{
+  font-family: 'Butler', serif;
+  font-size: 50px;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    background-color: lightgray; 
+    width: 1000px;
+    padding: 20px; 
+    margin: 20px auto 0;    
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    border: black solid 2px;
+    border-radius: 7px;
+}
 
 </style>

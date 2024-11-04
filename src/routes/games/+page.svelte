@@ -35,11 +35,22 @@
     
     function selectRandomOperator() {
         if (operators.length > 0) {
+
             const randomNumber = Math.floor(Math.random() * operators.length);
-            selectedOperator = operators[randomNumber];
-            operatorArt = selectedOperator.art[0].link; 
-            result = ''; 
-            selectedClass = '';
+
+            if (randomNumber == 252)
+            {
+                selectRandomOperator();
+            }
+
+             {            
+                selectedOperator = operators[randomNumber];
+                operatorArt = selectedOperator.art[0].link; 
+                result = ''; 
+                selectedClass = '';
+            }
+            
+
         } else {
             result = 'No operators available.';
         }
@@ -69,9 +80,7 @@ fetchOperators()
 
 <div class="content">
     <div class="searchbar">
-        <h2>Operator Quiz</h2>
-        <br>
-        
+        <h2>Operator Quiz</h2>        
         {#if pageLoading}
             <p>Loading...</p>
         {:else if !gamePlaying}
@@ -111,7 +120,6 @@ fetchOperators()
                 {/if}            
             {/if}
         {/if}
-        <br>
         <h3>Welcome to my game of knowledge and memory!</h3>
         <p>This quiz will test you on your knowledge of AK operators and their class, if you get the answer correct, Great! your score will add up infinitely. Get one wrong and you will be reset back to 0! Good luck!</p>
         <p>Please be aware that a select few operators do not have a full HD transparent art, and as such may look a bit skewed. Also when a new question is loading please allow a few seconds to answer, as the image may be loading.</p>
@@ -120,9 +128,10 @@ fetchOperators()
 
 <style>
 div > p, h3 {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Butler', serif;
     font-weight: bold;
     color: rgb(75, 75, 75);
+    font-size: 20px;
 }
 
 .searchbar {
@@ -131,24 +140,11 @@ div > p, h3 {
     padding: 10px;
 }
 
-.content {
-    position: relative;
-    z-index: 1;
-    background-color: lightgray; 
-    width: 1000px;
-    padding: 20px; 
-    margin: 20px auto 0;    
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    border: black solid 2px;
-    border-radius: 7px;
-}
-
 h2 {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Butler', serif;
     font-weight: bold;
     color: rgb(75, 75, 75);
+    font-size: 40px;
 }
 
 .error {
@@ -164,7 +160,7 @@ label {
     align-items: center; 
     flex-wrap: wrap; 
     cursor: pointer; 
-    font-family: 'Noto Sans', sans-serif; 
+    font-family: 'Butler', serif;
     font-size: 16px; 
     color: rgb(75, 75, 75); 
     max-width: 200px;
@@ -182,6 +178,15 @@ input[type="radio"] {
     justify-content: center;
 }
 
+.radioButtonContainer :hover {
+    color: #1a1a1a; 
+    transform: scale(1.1); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    border-radius: 5px;
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+
 .startButton {
     max-width: 200px;
     padding: 15px; 
@@ -189,4 +194,5 @@ input[type="radio"] {
     border-radius: 7px;
     border:solid black 2px;
 }
+
 </style>

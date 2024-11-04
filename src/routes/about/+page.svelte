@@ -4,14 +4,12 @@
 </script>
 
 <Header headingTitle = "About"/>
-<p>About: We are gonna steal your children :D</p>
+<p>This website is more or less an attempt at utlising an arknights API (Linked Below). This inlcudes some basic usability and reactivity, and is mostly just a testing ground for implimenting new features. This may be updated as progress with my skills in web development</p>
 
 <style>
     p{
-     font-family: 'Noto Sans', sans-serif;
+    font-family: 'Butler', serif;
     font-weight: bold;
-    src: url(https://fonts.gstatic.com/s/notosans/v36/o-0ZIpQlx3QUlC5A4PNr4C5OaxRsfNNlKbCePevttHOmDyw.woff2) format('woff2');  
-    unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;   
     color: lightgray;
     }
 </style>

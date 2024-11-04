@@ -41,55 +41,53 @@
     }
 </script>
 
-<div class="content">
-    <div class="searchbar">
-        <h2 for="textbox">Search for Operators</h2>
-        <br>
-        <input
-            id="textbox"
-            type="text"
-            bind:value={userInput}
-            placeholder="Please enter an Operator's Name"
-        />
-        <br>
-        <button class="searchbutton" on:click={search}>Click to fetch data (If available)</button>
-        
-        {#if pageLoading}
-            <p>Loading...</p>
-        {:else if operatorData}
-            <div class="operatorSpecifics">
-                <p>
-                    Name: {operatorData.name}<br>
-                    Rarity: {operatorData.rarity}* <br>
-                    Class: {operatorClass.join(', ')} <br>                   
-                    {#if operatorE0Art} 
-                        <br>
-                        E0 Art: 
-                        <br>
-                        <img src={operatorE0Art} alt={operatorData.name + " E0 IMG"} width="500" height="500"/> 
-                    {/if} 
+<div class="searchbar">
+    <h2 for="textbox">Search for Operators</h2>
+    <br>
+    <input
+        id="textbox"
+        type="text"
+        bind:value={userInput}
+        placeholder="Please enter an Operator's Name"
+    />
+    <br>
+    <button class="searchbutton" on:click={search}>Click to fetch data (If available)</button>
+    
+    {#if pageLoading}
+        <p>Loading...</p>
+    {:else if operatorData}
+        <div class="operatorSpecifics">
+            <p>
+                Name: {operatorData.name}<br>
+                Rarity: {operatorData.rarity}* <br>
+                Class: {operatorClass.join(', ')} <br>                   
+                {#if operatorE0Art} 
                     <br>
-                    {#if operatorE2Art} 
-                        <br>
-                        E2 Art:                    
-                        <br>
-                        <img src={operatorE2Art} alt={operatorData.name + " E2 IMG"} width="500" height="500"/>                     
-                    {/if}
-                </p>            
-            </div>
-        {:else if error}
-            <div class="operatorSpecifics">
-                <p class="error">{error}</p>
-            </div>
-        {/if}
-        <p>Here on this page you can search for any operator (Up to a certain point, currently the latest 6* is Ulpianus). 
-            And the website will display data related to the operator, assuming they exist. However you will need to input special characters. Such as the 'š' in Wiš'adel, without them the API will error.</p>
-    </div>
+                    E0 Art: 
+                    <br>
+                    <img src={operatorE0Art} alt={operatorData.name + " E0 IMG"} width="500" height="500"/> 
+                {/if} 
+                <br>
+                {#if operatorE2Art} 
+                    <br>
+                    E2 Art:                    
+                    <br>
+                    <img src={operatorE2Art} alt={operatorData.name + " E2 IMG"} width="500" height="500"/>                     
+                {/if}
+            </p>            
+        </div>
+    {:else if error}
+        <div class="operatorSpecifics">
+            <p class="error">{error}</p>
+        </div>
+    {/if}
+    <p>Here on this page you can search for any operator (Up to a certain point, currently the latest 6* is Ulpianus). 
+        And the website will display data related to the operator, assuming they exist. However you will need to input special characters. Such as the 'š' in Wiš'adel, without them the API will error.</p>
 </div>
 
 <style>
 div > p {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Butler', serif;
     font-weight: bold;
     color: rgb(75, 75, 75);
 }
@@ -113,22 +111,9 @@ input {
     outline: black solid 1px;
 }
 
-.content {
-    position: relative;
-    z-index: 1;
-    background-color: lightgray; 
-    width: 1000px;
-    padding: 20px; 
-    margin: 20px auto 0;    
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    border: black solid 2px;
-    border-radius: 7px;
-}
 
 h2 {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Butler', serif;
     font-weight: bold;
     color: rgb(75, 75, 75);
 }

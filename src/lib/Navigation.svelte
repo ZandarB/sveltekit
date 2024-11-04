@@ -9,26 +9,30 @@
 </nav>
 
 <style>
-    .links {
-        display: flex;
-        padding: 20px;
-        color:lightgray;
-        background-color: lightgray;
-        border: 2px solid black;
-        border-radius: 7px;
-    }
+.links {
+    display: flex;
+    padding: 20px;
+    color: lightgray;
+    background-color: lightgray;
+    border: 2px solid black;
+    border-radius: 7px;
+}
 
-    .links a {
-        margin-right: 75px; 
-        text-decoration: none;
-        color: rgb(75, 75, 75);
- font-family: 'Noto Sans', sans-serif;
-        font-weight: bold;
-        src: url(https://fonts.gstatic.com/s/notosans/v36/o-0ZIpQlx3QUlC5A4PNr4C5OaxRsfNNlKbCePevttHOmDyw.woff2) format('woff2');  
-        unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;          
-    }
+.links a {
+    font-family: 'Butler', serif; 
+    margin-right: 75px; 
+    text-decoration: none;
+    color: rgb(75, 75, 75);
+    font-weight: bold; 
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-size: 30px;
+}
 
-    .links a:hover {
-        text-decoration: underline; 
-    }
+.links a:hover {
+    color: #1a1a1a; 
+    transform: scale(1.1); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    border-radius: 5px;
+}
+
 </style>
