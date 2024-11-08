@@ -22,14 +22,14 @@
     <li>More In Depth Operator Overview: Display Skills, Stats and build Costs.</li>
 </ul>
 
+<h2><strong>Website Update Log:</strong></h2>
+<p><strong>V 0.1</strong> <br> Implimented Update Log</p>
 
 <h2>Data Used</h2>
 <p>https://api.rhodesapi.com/api/operator</p>
 
-
-<h2><strong>Website Update Log:</strong></h2>
-<p><strong>V 0.1</strong> <br> Implimented Update Log</p>
 <br>
+
 <style>
     *{
     font-family: 'Butler', serif;

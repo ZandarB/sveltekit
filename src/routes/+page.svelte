@@ -5,7 +5,7 @@
 
 <Header headingTitle = "My Thingy"/>
 
-<p>Welcome to my webpage</p>
+<p>Welcome to my webpage, please refer to the "About" page for information about my website. Otherwise enjoy!</p>
 
 
 <style>
