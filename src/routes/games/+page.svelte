@@ -26,6 +26,7 @@
         const response = await fetch(`https://api.rhodesapi.com/api/operator/`);
         if (response.ok) {
             operators = await response.json();
+            console.log(operators)
             selectRandomOperator();
         } else {
             result = 'There was an error fetching operators.';

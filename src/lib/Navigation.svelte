@@ -10,7 +10,6 @@
 
 <style>
 .links {
-    display: flex;
     padding: 20px;
     color: lightgray;
     background-color: lightgray;

@@ -6,7 +6,7 @@ let currentYear = new Date().getFullYear();
 
 </script>
 
-<p>&copy; My Shitshow: {currentYear} {currentTime}</p>
+<p>&copy; My Website: {currentYear} {currentTime}</p>
 
 <style>
      p { 

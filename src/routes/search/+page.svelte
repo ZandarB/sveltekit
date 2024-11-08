@@ -82,8 +82,11 @@
         </div>
     {/if}
     <p>Here on this page you can search for any operator (Up to a certain point, currently the latest 6* is Ulpianus). 
-        And the website will display data related to the operator, assuming they exist. However you will need to input special characters. Such as the 'š' in Wiš'adel, without them the API will error.</p>
-</div>
+        And the website will display data related to the operator, assuming they exist. However you will need to input special characters. Such as the 'š' in Wiš'adel, without them the API will error.
+    <br>Also, Some units may have incomplete data, as a result of being newly implemented or poor upkeep on the API's part.
+    </p>
+
+    </div>
 
 <style>
 div > p {

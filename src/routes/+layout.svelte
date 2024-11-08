@@ -5,7 +5,7 @@
 </script>
 
 <div class="background"></div>
-<h1>My Shitshow</h1>
+<h1>My Website</h1>
 <Navigation/>
 <div class=content>
   <slot/>
@@ -47,5 +47,7 @@ h1{
     border: black solid 2px;
     border-radius: 7px;
 }
+
+
 
 </style>
